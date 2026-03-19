@@ -4,6 +4,15 @@
 
 Definir cómo debe trabajar un agente de código dentro de repos que adopten estos estándares.
 
+## Regla de arranque
+
+Antes de analizar, planificar, editar o revisar código en este repo, el agente
+debe leer y aplicar [`.github/SKILL.MD`](/Users/pedrorozas/personal/portafolio-pedro/.github/SKILL.MD).
+
+Esa guía es la referencia principal del repositorio para decisiones de
+arquitectura, UI, estructura, responsive y fidelidad al diseño. Este archivo
+complementa esa guía; no la reemplaza.
+
 ## Comportamiento en repos nuevos
 
 Cuando el repo se está creando desde cero, el agente debe:

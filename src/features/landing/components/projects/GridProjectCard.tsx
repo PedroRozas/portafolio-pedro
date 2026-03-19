@@ -26,7 +26,8 @@ export function GridProjectCard({ project }: GridProjectCardProps) {
         overflow: "hidden",
         minHeight: { xs: 320, md: 380 },
         height: "100%",
-        display: "block",
+        display: "flex",
+        alignItems: "flex-end",
         transition: "transform 220ms ease, border-color 220ms ease",
         "&:hover": {
           transform: "translateY(-4px)",
@@ -48,6 +49,8 @@ export function GridProjectCard({ project }: GridProjectCardProps) {
         alt={project.alt}
         loading="lazy"
         sx={{
+          position: "absolute",
+          inset: 0,
           width: "100%",
           height: "100%",
           objectFit: "cover",
@@ -67,9 +70,9 @@ export function GridProjectCard({ project }: GridProjectCardProps) {
       <Stack
         spacing={2}
         sx={{
-          position: "absolute",
-          insetInline: 0,
-          bottom: 0,
+          position: "relative",
+          zIndex: 1,
+          width: "100%",
           p: { xs: 3, md: 4 },
         }}
       >

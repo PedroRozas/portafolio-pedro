@@ -25,7 +25,8 @@ export function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
         position: "relative",
         overflow: "hidden",
         minHeight: { xs: 360, md: 440, lg: 500 },
-        display: "block",
+        display: "flex",
+        alignItems: "flex-end",
         transition: "transform 220ms ease, border-color 220ms ease",
         "&:hover": {
           transform: "translateY(-4px)",
@@ -47,6 +48,8 @@ export function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
         alt={project.alt}
         loading="lazy"
         sx={{
+          position: "absolute",
+          inset: 0,
           width: "100%",
           height: "100%",
           objectFit: "cover",
@@ -68,9 +71,9 @@ export function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
       <Stack
         spacing={2.25}
         sx={{
-          position: "absolute",
-          insetInline: 0,
-          bottom: 0,
+          position: "relative",
+          zIndex: 1,
+          width: "100%",
           p: { xs: 3, md: 5 },
         }}
       >
