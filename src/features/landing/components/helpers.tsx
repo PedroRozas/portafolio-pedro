@@ -36,6 +36,14 @@ export function getExternalLinkProps(href: string) {
   };
 }
 
+export function getProjectHostLabel(href: string) {
+  try {
+    return new URL(href).hostname.replace(/^www\./, "");
+  } catch {
+    return href;
+  }
+}
+
 export function getSocialIcon(label: string) {
   if (label === "GitHub") {
     return <GitHub fontSize="inherit" />;

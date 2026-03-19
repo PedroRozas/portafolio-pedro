@@ -51,7 +51,7 @@ export function AboutSection() {
             >
               <Box
                 component="img"
-                src="/stitch/pedro-portrait.jpg"
+                src="/stitch/pedro-portrait.jpeg"
                 alt="Retrato ilustrado de Pedro Rozas"
                 loading="lazy"
                 sx={{

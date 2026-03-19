@@ -8,36 +8,61 @@ export const landingContent = {
   bio: "Ayudo a convertir ideas en productos digitales funcionales, claros y escalables. Desarrollo sitios web, ecommerce, sistemas internos y herramientas personalizadas con foco en resultados reales.",
 
   projectIntro:
-    "Estos son algunos de los proyectos en los que he trabajado, desde sitios corporativos y ecommerce hasta herramientas internas y productos digitales con integraciones reales.",
+    "Estos son algunos de los proyectos en los que he trabajado, desde sitios corporativos y ecommerce hasta herramientas internas y productos digitales con integraciones reales. Cada tarjeta enlaza a su versión publicada.",
 
   projects: {
-    featured: {
-      eyebrow: "Proyecto destacado",
-      title: "Comercial Teba",
-      description:
-        "Rediseño completo de una web tipo ecommerce con CMS propio, autenticación y control por niveles. El proyecto permitió dejar atrás un sistema antiguo y entregar autonomía total para administrar contenido, productos y futuras mejoras.",
-      tags: ["Vite", "Supabase", "CMS", "Ecommerce"],
-      image: "/works/comercialteba.webp",
-      alt: "Vista del proyecto Comercial Teba",
-    },
-    side: {
-      eyebrow: "Proyecto personal",
-      title: "PresupuestaDos",
-      description:
-        "Plataforma web para gestión de finanzas personales, creada desde una necesidad real. Permite visualizar gastos en pareja, separar aportes por porcentaje de sueldo, leer estados de cuenta con IA e interactuar con un asistente inteligente.",
-      tags: ["Vite", "NestJS", "Supabase", "IA"],
-      image: "/works/presupuestados.webp",
-      alt: "Vista del proyecto PresupuestaDos",
-    },
-    grid: {
-      eyebrow: "Ecommerce",
-      title: "A Tiempo Cajas",
-      description:
-        "Ecommerce desarrollado para vender cajas de productos en fechas específicas, con base de datos e integración de pagos mediante Flow. El proyecto ayudó a aumentar ventas en campañas estacionales.",
-      tags: ["Vite", "NestJS", "Supabase", "Flow"],
-      image: "/works/atiempocajas.webp",
-      alt: "Vista del proyecto A Tiempo Cajas",
-    },
+    items: [
+      {
+        eyebrow: "Proyecto destacado",
+        title: "Comercial Teba",
+        description:
+          "Rediseño completo de una web tipo ecommerce con CMS propio, autenticación y control por niveles. El proyecto permitió dejar atrás un sistema antiguo y entregar autonomía total para administrar contenido, productos y futuras mejoras.",
+        tags: ["Vite", "Supabase", "CMS", "Ecommerce"],
+        image: "/works/comercialteba.webp",
+        alt: "Vista del proyecto Comercial Teba",
+        href: "https://www.comercialteba.cl/",
+      },
+      {
+        eyebrow: "Proyecto personal",
+        title: "PresupuestaDos",
+        description:
+          "Plataforma web para gestión de finanzas personales, creada desde una necesidad real. Permite visualizar gastos en pareja, separar aportes por porcentaje de sueldo, leer estados de cuenta con IA e interactuar con un asistente inteligente.",
+        tags: ["Vite", "NestJS", "Supabase", "IA"],
+        image: "/works/presupuestados.webp",
+        alt: "Vista del proyecto PresupuestaDos",
+        href: "https://presupuestados.cl/",
+      },
+      {
+        eyebrow: "Ecommerce estacional",
+        title: "A Tiempo Cajas",
+        description:
+          "Ecommerce desarrollado para vender cajas de productos en fechas específicas, con base de datos e integración de pagos mediante Flow. El proyecto ayudó a aumentar ventas en campañas estacionales.",
+        tags: ["Vite", "NestJS", "Supabase", "Flow"],
+        image: "/works/atiempo.webp",
+        alt: "Vista del proyecto A Tiempo Cajas",
+        href: "https://cajasdemercaderiaatiempo.cl/",
+      },
+      {
+        eyebrow: "Landing para pyme",
+        title: "El Horno de Don Renato",
+        description:
+          "Página desarrollada para una pyme gastronómica con foco en mostrar mejor sus productos, reforzar su identidad artesanal y facilitar el descubrimiento del catálogo con una experiencia más clara y atractiva.",
+        tags: ["Vue", "Landing", "Catálogo", "Pyme"],
+        image: "/works/horno.webp",
+        alt: "Vista del proyecto El Horno de Don Renato",
+        href: "https://el-horno-de-don-renato.pages.dev/",
+      },
+      {
+        eyebrow: "Agendamiento + CMS",
+        title: "Kone-GlamLab",
+        description:
+          "Plataforma para una pyme de manicure con sistema de agendamiento, CMS propio para gestionar servicios, control de disponibilidad y base de datos propia para mantener contenidos y reservas bajo control.",
+        tags: ["Agendamiento", "CMS", "Disponibilidad", "Base de datos"],
+        image: "/works/koneglam.webp",
+        alt: "Vista del proyecto Kone-GlamLab",
+        href: "https://kone-glamlab.cl/",
+      },
+    ],
     focus: {
       title: "Áreas de trabajo",
       items: [
@@ -111,3 +136,5 @@ export const landingContent = {
       "Portafolio de Pedro Rozas · desarrollo web, ecommerce y soluciones digitales desde Chile.",
   },
 } as const;
+
+export type LandingProject = (typeof landingContent.projects.items)[number];

@@ -1,31 +1,43 @@
+import ArrowOutwardRounded from "@mui/icons-material/ArrowOutwardRounded";
 import { Box, Chip, Stack, Typography } from "@mui/material";
 import { alpha } from "@mui/material/styles";
-import { panelSx, portfolioColors } from "../helpers";
+import { type LandingProject } from "../../content";
+import {
+  getExternalLinkProps,
+  getProjectHostLabel,
+  panelSx,
+  portfolioColors,
+} from "../helpers";
 
 type FeaturedProjectCardProps = {
-  project: {
-    eyebrow: string;
-    title: string;
-    description: string;
-    tags: readonly string[];
-    image: string;
-    alt: string;
-  };
+  project: LandingProject;
 };
 
 export function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
   return (
     <Box
+      component="a"
+      href={project.href}
+      aria-label={`Abrir ${project.title}`}
+      {...getExternalLinkProps(project.href)}
       sx={(theme) => ({
         ...panelSx(theme),
-        gridColumn: { xs: "1 / -1", md: "span 8" },
         position: "relative",
         overflow: "hidden",
-        minHeight: { xs: 360, md: 460 },
+        minHeight: { xs: 360, md: 440, lg: 500 },
+        display: "block",
         transition: "transform 220ms ease, border-color 220ms ease",
         "&:hover": {
           transform: "translateY(-4px)",
           borderColor: alpha(portfolioColors.primary, 0.34),
+        },
+        "&:hover img": {
+          transform: "scale(1.04)",
+          opacity: 0.7,
+        },
+        "&:focus-visible": {
+          outline: `2px solid ${alpha(portfolioColors.primary, 0.9)}`,
+          outlineOffset: 4,
         },
       })}
     >
@@ -69,6 +81,25 @@ export function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
           {project.eyebrow}
         </Typography>
 
+        <Stack
+          direction="row"
+          alignItems="center"
+          spacing={0.75}
+          sx={{
+            color: alpha(portfolioColors.text, 0.74),
+            fontFamily: "Manrope, sans-serif",
+            fontSize: "0.75rem",
+            fontWeight: 700,
+            letterSpacing: "0.1em",
+            textTransform: "uppercase",
+          }}
+        >
+          <Typography component="span" sx={{ font: "inherit" }}>
+            {getProjectHostLabel(project.href)}
+          </Typography>
+          <ArrowOutwardRounded sx={{ fontSize: 18 }} />
+        </Stack>
+
         <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap">
           {project.tags.map((tag) => (
             <Chip
@@ -102,6 +133,26 @@ export function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
         >
           {project.description}
         </Typography>
+
+        <Stack
+          direction="row"
+          alignItems="center"
+          spacing={0.9}
+          sx={{ color: "primary.main" }}
+        >
+          <Typography
+            sx={{
+              fontFamily: "Manrope, sans-serif",
+              fontSize: "0.72rem",
+              fontWeight: 800,
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+            }}
+          >
+            Ver proyecto
+          </Typography>
+          <ArrowOutwardRounded sx={{ fontSize: 18 }} />
+        </Stack>
       </Stack>
     </Box>
   );
